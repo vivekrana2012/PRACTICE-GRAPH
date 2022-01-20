@@ -34,7 +34,9 @@ public class Graph<T> {
 
             neighbors.stream().map(GraphNode::new).forEach(node::addNeighbor);
 
-            adjacency.remove(node.getData());
+            node.getNeighbors().forEach(stack::push);
+
+            create(stack, adjacency);
         }
     }
 
